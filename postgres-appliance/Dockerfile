@@ -24,11 +24,11 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         && curl -L https://github.com/coreos/etcd/releases/download/v${ETCDVERSION}/etcd-v${ETCDVERSION}-linux-amd64.tar.gz \
                 | tar xz -C /bin --strip=1 --wildcards --no-anchored etcdctl etcd; \
     fi \
-\
+#\
     # Cleanup all locales but en_US.UTF-8
-    && find /usr/share/i18n/charmaps/ -type f ! -name UTF-8.gz -delete \
-    && find /usr/share/i18n/locales/ -type f ! -name en_US ! -name en_GB ! -name i18n* ! -name iso14651_t1 ! -name iso14651_t1_common ! -name 'translit_*' -delete \
-    && echo 'en_US.UTF-8 UTF-8' > /usr/share/i18n/SUPPORTED \
+    #&& find /usr/share/i18n/charmaps/ -type f ! -name UTF-8.gz -delete \
+    #&& find /usr/share/i18n/locales/ -type f ! -name en_US ! -name en_GB ! -name i18n* ! -name iso14651_t1 ! -name iso14651_t1_common ! -name 'translit_*' -delete \
+    #&& echo 'en_US.UTF-8 UTF-8' > /usr/share/i18n/SUPPORTED \
 \
     ## Make sure we have a en_US.UTF-8 locale available
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
